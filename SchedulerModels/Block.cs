@@ -17,5 +17,7 @@ namespace SchedulerModels
 
         public virtual GradeLevel Grade { get; set; }
         public virtual List<Student> Students { get; set; }
+        public virtual List<DayOfWeek> ScheduledDays { get; set; }
+        public virtual Teacher Teacher { get; set; }
     }
 }

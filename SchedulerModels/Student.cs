@@ -10,5 +10,8 @@ namespace SchedulerModels
     {
         public string MotherName { get; set; }
         public string FatherName { get; set; }
+
+        public virtual List<Block> Blocks { get; set; }
+        public virtual List<Lesson> Lessons { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace SchedulerModels
     public class LessonAttendance
     {
         public int LessonAttendanceId { get; set; }
-        public bool Attended { get; set; }
+        public bool HaveAttended { get; set; }
 
         public virtual Lesson Lesson { get; set; }
         public virtual Student Student { get; set; }

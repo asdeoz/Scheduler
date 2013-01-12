@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SchedulerModels
 {
-    public class GradeLevel
+    [Table("DaysOfWeek")]
+    public class DayOfWeek
     {
-        public int GradeLevelId { get; set; }
+        public int DayOfWeekId { get; set; }
         public string Name { get; set; }
-        public string Ages { get; set; }
-        public string Level { get; set; }
+        public int NumberOfDay { get; set; }
 
         public virtual List<Block> Blocks { get; set; }
-        public virtual List<Material> Materials { get; set; }
     }
 }
