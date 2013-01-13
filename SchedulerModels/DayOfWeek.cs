@@ -12,7 +12,10 @@ namespace SchedulerModels
     public class DayOfWeek
     {
         public int DayOfWeekId { get; set; }
+        [Required(ErrorMessage="The day of the week needs a name")]
+        [MaxLength(50)]
         public string Name { get; set; }
+        [Required]
         public int NumberOfDay { get; set; }
 
         public virtual List<Block> Blocks { get; set; }
