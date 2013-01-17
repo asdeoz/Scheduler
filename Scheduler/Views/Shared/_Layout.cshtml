@@ -15,10 +15,7 @@
                 @Html.Partial("_LogOnPartial")
             </div>
             <div id="menucontainer">
-                <ul id="menu">
-                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
-                </ul>
+                @Html.Partial("_MenuContainer")
             </div>
         </div>
         <div id="main">

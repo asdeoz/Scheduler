@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SchedulerModels
+namespace SchedulerModels.Entities
 {
     public class GradeLevel
     {

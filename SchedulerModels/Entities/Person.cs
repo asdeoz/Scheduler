@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SchedulerModels
+namespace SchedulerModels.Entities
 {
+    [Table("People")]
     public class Person
     {
+        [Key]
         public int PersonId { get; set; }
         [Required(ErrorMessage="A person needs a name")]
         [MaxLength(50)]

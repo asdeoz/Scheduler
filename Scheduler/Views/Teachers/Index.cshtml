@@ -1,0 +1,75 @@
+﻿@model IEnumerable<SchedulerModels.Entities.Teacher>
+
+@{
+    ViewBag.Title = "Teachers";
+}
+
+<h2>Teachers</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Fullname
+        </th>
+        <th>
+            Education
+        </th>
+        <th>
+            Name
+        </th>
+        <th>
+            Surname1
+        </th>
+        <th>
+            Surname2
+        </th>
+        <th>
+            IdNumber
+        </th>
+        <th>
+            Phone
+        </th>
+        <th>
+            Email
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fullname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Education)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Surname2)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PersonId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PersonId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PersonId })
+        </td>
+    </tr>
+}
+
+</table>

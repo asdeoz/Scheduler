@@ -45,20 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assignment.cs" />
-    <Compile Include="AssignmentGrade.cs" />
-    <Compile Include="Block.cs" />
-    <Compile Include="DayOfWeek.cs" />
-    <Compile Include="GradeLevel.cs" />
-    <Compile Include="Lesson.cs" />
-    <Compile Include="LessonAttendance.cs" />
-    <Compile Include="Material.cs" />
-    <Compile Include="Person.cs" />
+    <Compile Include="Entities\Assignment.cs" />
+    <Compile Include="Entities\AssignmentGrade.cs" />
+    <Compile Include="Entities\Block.cs" />
+    <Compile Include="Entities\DayOfWeek.cs" />
+    <Compile Include="Entities\GradeLevel.cs" />
+    <Compile Include="Entities\Lesson.cs" />
+    <Compile Include="Entities\LessonAttendance.cs" />
+    <Compile Include="Entities\Material.cs" />
+    <Compile Include="Entities\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="Teacher.cs" />
-    <Compile Include="Test.cs" />
-    <Compile Include="TestGrade.cs" />
+    <Compile Include="Entities\Student.cs" />
+    <Compile Include="Entities\Teacher.cs" />
+    <Compile Include="Entities\Test.cs" />
+    <Compile Include="Entities\TestGrade.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

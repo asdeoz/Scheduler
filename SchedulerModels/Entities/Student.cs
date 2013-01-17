@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SchedulerModels
+namespace SchedulerModels.Entities
 {
+    [Table("Students")]
     public class Student : Person
     {
         [Display(Name="Mother's Name")]

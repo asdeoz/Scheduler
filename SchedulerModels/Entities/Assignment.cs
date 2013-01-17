@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace SchedulerModels
+namespace SchedulerModels.Entities
 {
     public class Assignment
     {
@@ -20,7 +20,7 @@ namespace SchedulerModels
         public string Url { get; set; }
         public bool IsGraded { get; set; }
 
-        public virtual AssignmentGrade AssignmentGrades { get; set; }
+        public virtual AssignmentGrade AssignmentGrade { get; set; }
         public virtual Lesson LessonGivenIn { get; set; }
         public virtual Lesson LessonCorrectedIn { get; set; }
     }
