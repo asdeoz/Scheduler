@@ -10,7 +10,7 @@ namespace Scheduler.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Message = "ASP.NET MVC";
+            ViewBag.Message = "Emily's Academy";
 
             return View();
         }

@@ -18,8 +18,10 @@ namespace SchedulerModels.Entities
         public string Name { get; set; }
         [Required(ErrorMessage="A person needs at least a surname")]
         [MaxLength(50)]
+        [Display(Name="First Surname")]
         public string Surname1 { get; set; }
         [MaxLength(50)]
+        [Display(Name="Second Surname")]
         public string Surname2 { get; set; }
         [Required(ErrorMessage="A person needs an Id Number to be identified")]
         [Display(Name="Id Number")]

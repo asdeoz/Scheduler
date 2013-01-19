@@ -1,21 +1,18 @@
-﻿@model IEnumerable<SchedulerModels.Entities.Teacher>
+﻿@model IEnumerable<SchedulerModels.Entities.Student>
 
 @{
-    ViewBag.Title = "Teachers";
+    ViewBag.Title = "Index";
 }
 
-<h2>Teachers</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Add New", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table>
     <tr>
         <th>
             Name
-        </th>
-        <th>
-            Education
         </th>
         <th>
             Id Number
@@ -26,6 +23,12 @@
         <th>
             E-mail Address
         </th>
+        <th>
+            Mother's Name
+        </th>
+        <th>
+            Father's Name
+        </th>
         <th></th>
     </tr>
 
@@ -35,9 +38,6 @@
             @Html.DisplayFor(modelItem => item.Fullname)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Education)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.IdNumber)
         </td>
         <td>
@@ -45,6 +45,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MotherName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FatherName)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.PersonId }) |

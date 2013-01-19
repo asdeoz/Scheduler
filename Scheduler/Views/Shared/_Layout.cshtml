@@ -2,14 +2,15 @@
 <html>
 <head>
     <title>@ViewBag.Title</title>
-    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/Site.css?173919012013")" rel="stylesheet" type="text/css" />
     <script src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")" type="text/javascript"></script>
 </head>
 <body>
     <div class="page">
         <div id="header">
             <div id="title">
-                <h1>Mi aplicación de MVC</h1>
+                <h1></h1>@*<img src="../../Content/images/EmilysAcademyLogo.png" alt="Emily's Academy"/>*@
+@*                <h1>Emily's Academy</h1>*@
             </div>
             <div id="logindisplay">
                 @Html.Partial("_LogOnPartial")
@@ -22,6 +23,7 @@
             @RenderBody()
         </div>
         <div id="footer">
+            LuckySevenCorp&copy - 2013
         </div>
     </div>
 </body>

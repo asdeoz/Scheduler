@@ -1,6 +1,10 @@
 ﻿<ul id="menu">
-    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
-    <li>@Html.ActionLink("Teachers", "Index", "Teachers")</li>
-    <li>@Html.ActionLink("Acerca de", "About", "Home")</li>
+    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+    @if (Request.IsAuthenticated)
+    {
+        <li>@Html.ActionLink("Teachers", "Index", "Teachers")</li>
+        <li>@Html.ActionLink("Students", "Index", "Students")</li>
+    }
+    <li>@Html.ActionLink("About us", "About", "Home")</li>
 </ul>
 

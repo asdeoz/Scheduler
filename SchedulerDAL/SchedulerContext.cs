@@ -10,6 +10,7 @@ namespace SchedulerDAL
     public class SchedulerContext : DbContext
     {
         public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Student> Students { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

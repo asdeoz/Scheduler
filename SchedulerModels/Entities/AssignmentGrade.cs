@@ -14,7 +14,6 @@ namespace SchedulerModels.Entities
         public decimal Grade { get; set; }
 
         public virtual Student Student { get; set; }
-        //[ForeignKey("AssignmentGradeId")]
         public virtual Assignment Assignment { get; set; }
         public virtual Block Block { get; set; }
         public virtual Teacher GradingTeacher { get; set; }

@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\StudentsRepositories.cs" />
     <Compile Include="Repositories\TeachersRepositories.cs" />
     <Compile Include="SchedulerContext.cs" />
   </ItemGroup>

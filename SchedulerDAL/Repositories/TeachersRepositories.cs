@@ -29,5 +29,24 @@ namespace SchedulerDAL.Repositories
 
             return teacher;
         }
+
+        public void SaveTeacher(Teacher teacher)
+        {
+            if (teacher.PersonId == 0)
+            {
+                context.Teachers.Add(teacher);
+            }
+
+            context.SaveChanges();
+        }
+
+        public void DeleteTeacher(int id)
+        {
+            var teacher = GetTeacher(id);
+
+            context.Teachers.Remove(teacher);
+
+            context.SaveChanges();
+        }
     }
 }

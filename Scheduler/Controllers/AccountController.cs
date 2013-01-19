@@ -43,7 +43,7 @@ namespace Scheduler.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "El nombre de usuario o la contraseña especificados son incorrectos.");
+                    ModelState.AddModelError("", "The user name or the password are incorrect.");
                 }
             }
 
@@ -134,7 +134,7 @@ namespace Scheduler.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "La contraseña actual es incorrecta o la nueva contraseña no es válida.");
+                    ModelState.AddModelError("", "The current password or the new password is wrong.");
                 }
             }
 
@@ -158,34 +158,34 @@ namespace Scheduler.Controllers
             switch (createStatus)
             {
                 case MembershipCreateStatus.DuplicateUserName:
-                    return "El nombre de usuario ya existe. Escriba un nombre de usuario diferente.";
+                    return "This user name is already in use. Enter a different user name.";
 
                 case MembershipCreateStatus.DuplicateEmail:
-                    return "Ya existe un nombre de usuario para esa dirección de correo electrónico. Escriba una dirección de correo electrónico diferente.";
+                    return "A user name for that e-mail addres is already in use. Enter a different e-mail address.";
 
                 case MembershipCreateStatus.InvalidPassword:
-                    return "La contraseña especificada no es válida. Escriba un valor de contraseña válido.";
+                    return "The password is not valid. Enter a valid password.";
 
                 case MembershipCreateStatus.InvalidEmail:
-                    return "La dirección de correo electrónico especificada no es válida. Compruebe el valor e inténtelo de nuevo.";
+                    return "The entered e-mail address is not valid. Check the value and try it again.";
 
                 case MembershipCreateStatus.InvalidAnswer:
-                    return "La respuesta de recuperación de la contraseña especificada no es válida. Compruebe el valor e inténtelo de nuevo.";
+                    return "The answer to recover your password is invalid. Check the value and try it again.";
 
                 case MembershipCreateStatus.InvalidQuestion:
-                    return "La pregunta de recuperación de la contraseña especificada no es válida. Compruebe el valor e inténtelo de nuevo.";
+                    return "The question to recover your password is invalid. Check the value and try it again.";
 
                 case MembershipCreateStatus.InvalidUserName:
-                    return "El nombre de usuario especificado no es válido. Compruebe el valor e inténtelo de nuevo.";
+                    return "The user name is invalid. Check the value and try it again.";
 
                 case MembershipCreateStatus.ProviderError:
-                    return "El proveedor de autenticación devolvió un error. Compruebe los datos especificados e inténtelo de nuevo. Si el problema continúa, póngase en contacto con el administrador del sistema.";
+                    return "The authentication provider had a problem. Check the data and try it again. If the problem persists, contact the system administrator.";
 
                 case MembershipCreateStatus.UserRejected:
-                    return "La solicitud de creación de usuario se ha cancelado. Compruebe los datos especificados e inténtelo de nuevo. Si el problema continúa, póngase en contacto con el administrador del sistema.";
+                    return "The user creation request has been cancelled. Check the data and try it again. If the problem persists, contact the system administrator.";
 
                 default:
-                    return "Error desconocido. Compruebe los datos especificados e inténtelo de nuevo. Si el problema continúa, póngase en contacto con el administrador del sistema.";
+                    return "Unknown error. Check the data and try it again. If the problem persists, contact the system administrator.";
             }
         }
         #endregion
