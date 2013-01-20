@@ -1,10 +1,10 @@
-﻿@model SchedulerModels.Entities.Teacher
+﻿@model SchedulerModels.Entities.Student
 
 @{
-    ViewBag.Title = "New teacher";
+    ViewBag.Title = "New student";
 }
 
-<h2>Teachers</h2>
+<h2>Students</h2>
 
 <script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
 <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
@@ -12,7 +12,7 @@
 @using (Html.BeginForm()) {
     @Html.ValidationSummary(true)
     <fieldset>
-        <legend>New teacher</legend>
+        <legend>New student</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.Name)
@@ -61,17 +61,25 @@
             @Html.EditorFor(model => model.Email)
             @Html.ValidationMessageFor(model => model.Email)
         </div>
-                <div class="editor-label">
-            @Html.LabelFor(model => model.Education)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MotherName)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MotherName)
+            @Html.ValidationMessageFor(model => model.MotherName)
         </div>
 
+        <div class="editor-label">
+            @Html.LabelFor(model => model.FatherName)
+        </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.Education)
-            @Html.ValidationMessageFor(model => model.Education)
+            @Html.EditorFor(model => model.FatherName)
+            @Html.ValidationMessageFor(model => model.FatherName)
         </div>
 
         <p>
-            <input type="submit" value="Add teacher" />
+            <input type="submit" value="Add student" />
         </p>
     </fieldset>
 }

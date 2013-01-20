@@ -25,7 +25,7 @@ namespace Scheduler.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            return View(repository.GetStudent(id));
         }
 
         //
@@ -45,6 +45,19 @@ namespace Scheduler.Controllers
             try
             {
                 // TODO: Add insert logic here
+                var student = new Student
+                {
+                    Name = collection.Get("Name"),
+                    Surname1 = collection.Get("Surname1"),
+                    Surname2 = collection.Get("Surname2"),
+                    IdNumber = collection.Get("IdNumber"),
+                    Email = collection.Get("Email"),
+                    Phone = collection.Get("Phone"),
+                    FatherName = collection.Get("FatherName"),
+                    MotherName = collection.Get("MotherName")
+                };
+
+                repository.SaveStudent(student);
 
                 return RedirectToAction("Index");
             }
@@ -59,7 +72,7 @@ namespace Scheduler.Controllers
  
         public ActionResult Edit(int id)
         {
-            return View();
+            return View(repository.GetStudent(id));
         }
 
         //
@@ -71,6 +84,18 @@ namespace Scheduler.Controllers
             try
             {
                 // TODO: Add update logic here
+                var student = repository.GetStudent(id);
+
+                student.Name = collection.Get("Name");
+                student.Surname1 = collection.Get("Surname1");
+                student.Surname2 = collection.Get("Surname2");
+                student.IdNumber = collection.Get("IdNumber");
+                student.Email = collection.Get("Email");
+                student.Phone = collection.Get("Phone");
+                student.FatherName = collection.Get("FatherName");
+                student.MotherName = collection.Get("MotherName");
+
+                repository.SaveStudent(student);
  
                 return RedirectToAction("Index");
             }
@@ -85,7 +110,7 @@ namespace Scheduler.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View();
+            return View(repository.GetStudent(id));
         }
 
         //
@@ -97,6 +122,7 @@ namespace Scheduler.Controllers
             try
             {
                 // TODO: Add delete logic here
+                repository.DeleteStudent(id);
  
                 return RedirectToAction("Index");
             }

@@ -1,0 +1,49 @@
+﻿@model SchedulerModels.Entities.Student
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this student?</h3>
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fullname)
+    </div>
+
+    <div class="display-label">Id Number</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdNumber)
+    </div>
+
+    <div class="display-label">Phone Number</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">E-mail Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">Mother's Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MotherName)
+    </div>
+
+    <div class="display-label">Father's Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FatherName)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

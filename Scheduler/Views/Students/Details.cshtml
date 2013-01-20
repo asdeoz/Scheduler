@@ -1,0 +1,45 @@
+﻿@model SchedulerModels.Entities.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Student</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Fullname)
+    </div>
+
+    <div class="display-label">Id Number</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdNumber)
+    </div>
+
+    <div class="display-label">Phone Number</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Phone)
+    </div>
+
+    <div class="display-label">E-mail Address</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">Mother's Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MotherName)
+    </div>
+
+    <div class="display-label">Father's Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.FatherName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.PersonId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

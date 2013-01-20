@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SchedulerModels.Entities.GradeLevel>
+
+@{
+    ViewBag.Title = "Grade Levels";
+}
+
+<h2>Grade Levels</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            Name
+        </th>
+        <th>
+            Ages
+        </th>
+        <th>
+            Level
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ages)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Level)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.GradeLevelId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.GradeLevelId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.GradeLevelId })
+        </td>
+    </tr>
+}
+
+</table>
