@@ -1,11 +1,12 @@
 ﻿<ul id="menu">
     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-    @if (Request.IsAuthenticated)
+@*    @if (Request.IsAuthenticated)
     {
-        <li>@Html.ActionLink("Teachers", "Index", "Teachers")</li>
+        *@<li>@Html.ActionLink("Teachers", "Index", "Teachers")</li>
         <li>@Html.ActionLink("Students", "Index", "Students")</li>
         <li>@Html.ActionLink("Grade Levels", "Index", "GradeLevels")</li>
-    }
+        <li>@Html.ActionLink("Blocks", "Index", "Blocks")</li>
+@*    }*@
     <li>@Html.ActionLink("About us", "About", "Home")</li>
 </ul>
 

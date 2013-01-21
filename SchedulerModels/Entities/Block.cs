@@ -19,13 +19,17 @@ namespace SchedulerModels.Entities
         [Display(Name="Is it active?")]
         public bool IsActive { get; set; }
         [Display(Name="Start date")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
         [Display(Name="End date")]
+        [DataType(DataType.Date)]
         public DateTime EndDate { get; set; }
 
+        [Required(ErrorMessage="A block must be in a grade level")]
         public virtual GradeLevel Grade { get; set; }
         public virtual List<Student> Students { get; set; }
         public virtual List<DayOfWeek> ScheduledDays { get; set; }
+        [Required(ErrorMessage="A block must have a teacher")]
         public virtual Teacher Teacher { get; set; }
     }
 }
