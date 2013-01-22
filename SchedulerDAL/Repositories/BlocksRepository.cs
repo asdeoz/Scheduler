@@ -8,11 +8,28 @@ namespace SchedulerDAL.Repositories
 {
     public class BlocksRepository
     {
-        SchedulerContext context;
+        private SchedulerContext context;
+
+        /// <summary>
+        /// A context property to be able to share it with another repository
+        /// </summary>
+        public SchedulerContext Context
+        {
+            get { return context; }
+        }
 
         public BlocksRepository()
         {
             context = new SchedulerContext();
+        }
+
+        /// <summary>
+        /// Constructor with a context as a parameter
+        /// </summary>
+        /// <param name="_context">Context from another repository to use the same</param>
+        public BlocksRepository(SchedulerContext _context)
+        {
+            context = _context;
         }
 
         public IQueryable<Block> Blocks
@@ -63,5 +80,36 @@ namespace SchedulerDAL.Repositories
 
             context.SaveChanges();
         }
+
+        public IQueryable<Teacher> Teachers
+        {
+            get
+            {
+                return context.Teachers;
+            }
+        }
+
+        public IQueryable<GradeLevel> GradeLevels
+        {
+            get
+            {
+                return context.GradeLevels;
+            }
+        }
+
+        public Teacher GetTeacher(int id)
+        {
+            var teacher = context.Teachers.Where(t => t.PersonId == id).FirstOrDefault();
+
+            return teacher;
+        }
+
+        public GradeLevel GetGradeLevel(int id)
+        {
+            var gradeLevel = context.GradeLevels.Where(gl => gl.GradeLevelId == id).FirstOrDefault();
+
+            return gradeLevel;
+        }
+
     }
 }

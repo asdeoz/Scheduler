@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<SchedulerModels.Entities.Block>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Blocks";
 }
 
-<h2>Index</h2>
+<h2>Blocks</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add New", "Create")
 </p>
 <table>
     <tr>
@@ -18,13 +18,19 @@
             Description
         </th>
         <th>
-            IsActive
+            Is Active
         </th>
         <th>
-            StartDate
+            Start Date
         </th>
         <th>
-            EndDate
+            End Date
+        </th>
+        <th>
+            Grade
+        </th>
+        <th>
+            Teacher
         </th>
         <th></th>
     </tr>
@@ -45,6 +51,12 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.EndDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grade.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.Fullname)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.BlockId }) |

@@ -1,0 +1,50 @@
+﻿@model SchedulerModels.Entities.Block
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Block</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Name)
+    </div>
+
+    <div class="display-label">Description</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Description)
+    </div>
+
+    <div class="display-label">Is Active</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IsActive)
+    </div>
+
+    <div class="display-label">Start Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.StartDate)
+    </div>
+
+    <div class="display-label">End Date</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EndDate)
+    </div>
+
+    <div class="display-label">Teacher</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Teacher.Fullname)
+    </div>
+
+    <div class="display-label">Grade</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Grade.Name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.BlockId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

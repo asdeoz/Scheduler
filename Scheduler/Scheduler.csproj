@@ -239,6 +239,9 @@
     <Content Include="Views\Blocks\Index.cshtml" />
     <Content Include="Views\Blocks\Create.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Blocks\Details.cshtml" />
+    <Content Include="Views\Blocks\Edit.cshtml" />
+    <Content Include="Views\Blocks\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
