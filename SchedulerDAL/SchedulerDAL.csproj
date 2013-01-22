@@ -49,6 +49,7 @@
     <Compile Include="Repositories\StudentsRepositories.cs" />
     <Compile Include="Repositories\TeachersRepositories.cs" />
     <Compile Include="SchedulerContext.cs" />
+    <Compile Include="SchedulerDbInitializer.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SchedulerModels\SchedulerModels.csproj">

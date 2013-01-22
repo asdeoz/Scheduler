@@ -33,6 +33,8 @@ namespace Scheduler
 
         protected void Application_Start()
         {
+            Database.SetInitializer<SchedulerDAL.SchedulerContext>(new SchedulerDAL.SchedulerDbInitializer());
+
             AreaRegistration.RegisterAllAreas();
 
             // Usar LocalDB para Entity Framework de manera predeterminada

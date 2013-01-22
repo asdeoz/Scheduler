@@ -1,0 +1,16 @@
+﻿@model DateTime?
+           
+@{
+    //object htmlAttributes;
+    //if (ViewData.Keys.Contains("Readonly") && (Boolean)ViewData["Readonly"]) 
+    //{
+    //    htmlAttributes = new { @readonly = ViewData["Readonly"] } ;
+    //}
+    //else
+    //{
+        //El datepicker se utiliza solo si NO es readOnly
+        //htmlAttributes = new { @class = "datePicker" };
+    //}
+
+    @Html.TextBox("", (Model.HasValue ? Model.Value.ToShortDateString() : string.Empty), new { @class = "datePicker" });
+}
