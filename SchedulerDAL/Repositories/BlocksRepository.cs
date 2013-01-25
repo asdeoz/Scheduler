@@ -8,15 +8,7 @@ namespace SchedulerDAL.Repositories
 {
     public class BlocksRepository
     {
-        private SchedulerContext context;
-
-        /// <summary>
-        /// A context property to be able to share it with another repository
-        /// </summary>
-        public SchedulerContext Context
-        {
-            get { return context; }
-        }
+        private static SchedulerContext context;
 
         public BlocksRepository()
         {
@@ -26,7 +18,7 @@ namespace SchedulerDAL.Repositories
         /// <summary>
         /// Constructor with a context as a parameter
         /// </summary>
-        /// <param name="_context">Context from another repository to use the same</param>
+        /// <param name="_context">Shared context between repositories</param>
         public BlocksRepository(SchedulerContext _context)
         {
             context = _context;

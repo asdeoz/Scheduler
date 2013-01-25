@@ -15,6 +15,15 @@ namespace SchedulerDAL.Repositories
             context = new SchedulerContext();
         }
 
+        /// <summary>
+        /// Constructor with a context as a parameter
+        /// </summary>
+        /// <param name="_context">Shared context between repositories</param>
+        public TeachersRepositories(SchedulerContext _context)
+        {
+            context = _context;
+        }
+
         public IQueryable<Teacher> Teachers
         {
             get

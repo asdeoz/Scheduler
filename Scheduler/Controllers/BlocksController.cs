@@ -10,14 +10,22 @@ namespace Scheduler.Controllers
 {
     public class BlocksController : Controller
     {
-        BlocksRepository repository = new BlocksRepository();
+        SchedulerDAL.SchedulerContext context = new SchedulerDAL.SchedulerContext();
+        BlocksRepository bRepository;
+        TeachersRepositories tRepository;
+
+        public BlocksController()
+        {
+            bRepository = new BlocksRepository(context);
+            tRepository = new TeachersRepositories(context);
+        }
 
         //
         // GET: /Blocks/
 
         public ActionResult Index()
         {
-            return View(repository.BlocksLoaded);
+            return View(bRepository.BlocksLoaded);
         }
 
         //
@@ -25,7 +33,7 @@ namespace Scheduler.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(repository.GetBlockLoaded(id));
+            return View(bRepository.GetBlockLoaded(id));
         }
 
         //
@@ -88,8 +96,8 @@ namespace Scheduler.Controllers
                     return View(block);
                 }
 
-                var teacher = repository.GetTeacher(teacherId);
-                var grade = repository.GetGradeLevel(gradeId);
+                var teacher = bRepository.GetTeacher(teacherId);
+                var grade = bRepository.GetGradeLevel(gradeId);
 
                 if (teacher == null || grade == null)
                 {
@@ -101,7 +109,7 @@ namespace Scheduler.Controllers
                 block.Teacher = teacher;
                 block.Grade = grade;
 
-                repository.SaveBlock(block);
+                bRepository.SaveBlock(block);
 
                 return RedirectToAction("Index");
             }
@@ -117,7 +125,7 @@ namespace Scheduler.Controllers
  
         public ActionResult Edit(int id)
         {
-            var block = repository.GetBlockLoaded(id);
+            var block = bRepository.GetBlockLoaded(id);
             FillDropDowns(block.Teacher, block.Grade);
             return View(block);
         }
@@ -131,7 +139,7 @@ namespace Scheduler.Controllers
             try
             {
                 // TODO: Add update logic here
-                var block = repository.GetBlockLoaded(id);
+                var block = bRepository.GetBlockLoaded(id);
 
                 block.Name = collection.Get("Name");
                 block.Description = collection.Get("Description");
@@ -172,8 +180,8 @@ namespace Scheduler.Controllers
                     return View(block);
                 }
 
-                var teacher = repository.GetTeacher(teacherId);
-                var grade = repository.GetGradeLevel(gradeId);
+                var teacher = bRepository.GetTeacher(teacherId);
+                var grade = bRepository.GetGradeLevel(gradeId);
 
                 if (teacher == null || grade == null)
                 {
@@ -185,7 +193,7 @@ namespace Scheduler.Controllers
                 block.Teacher = teacher;
                 block.Grade = grade;
 
-                repository.SaveBlock(block);
+                bRepository.SaveBlock(block);
 
                 return RedirectToAction("Index");
             }
@@ -200,7 +208,7 @@ namespace Scheduler.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View(repository.GetBlockLoaded(id));
+            return View(bRepository.GetBlockLoaded(id));
         }
 
         //
@@ -212,7 +220,7 @@ namespace Scheduler.Controllers
             try
             {
                 // TODO: Add delete logic here
-                repository.DeleteBlock(id);
+                bRepository.DeleteBlock(id);
  
                 return RedirectToAction("Index");
             }
@@ -224,17 +232,17 @@ namespace Scheduler.Controllers
 
         private void FillDropDowns()
         {
-            SelectList teacherList = new SelectList(repository.Teachers, "PersonId", "Fullname");
+            SelectList teacherList = new SelectList(tRepository.Teachers, "PersonId", "Fullname");
             ViewData["Teacher_List"] = teacherList;
-            SelectList gradesList = new SelectList(repository.GradeLevels, "GradeLevelId", "Name");
+            SelectList gradesList = new SelectList(bRepository.GradeLevels, "GradeLevelId", "Name");
             ViewData["Grade_List"] = gradesList;
         }
 
         private void FillDropDowns(Teacher teacher, GradeLevel grade)
         {
-            SelectList teacherList = new SelectList(repository.Teachers, "PersonId", "Fullname", teacher.PersonId);
+            SelectList teacherList = new SelectList(tRepository.Teachers, "PersonId", "Fullname", teacher.PersonId);
             ViewData["Teacher_List"] = teacherList;
-            SelectList gradesList = new SelectList(repository.GradeLevels, "GradeLevelId", "Name", grade.GradeLevelId);
+            SelectList gradesList = new SelectList(bRepository.GradeLevels, "GradeLevelId", "Name", grade.GradeLevelId);
             ViewData["Grade_List"] = gradesList;
         }
 
