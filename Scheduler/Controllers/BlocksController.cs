@@ -10,14 +10,28 @@ namespace Scheduler.Controllers
 {
     public class BlocksController : Controller
     {
-        BlocksRepository repository = new BlocksRepository();
+<<<<<<< HEAD
+        BlocksRepository bRepository = new BlocksRepository();
+        TeachersRepositories tRepository = new TeachersRepositories();
+        GradeLevelsRepository gRepository = new GradeLevelsRepository();
+=======
+        SchedulerDAL.SchedulerContext context = new SchedulerDAL.SchedulerContext();
+        BlocksRepository bRepository;
+        TeachersRepositories tRepository;
+
+        public BlocksController()
+        {
+            bRepository = new BlocksRepository(context);
+            tRepository = new TeachersRepositories(context);
+        }
+>>>>>>> origin
 
         //
         // GET: /Blocks/
 
         public ActionResult Index()
         {
-            return View(repository.BlocksLoaded);
+            return View(bRepository.BlocksLoaded);
         }
 
         //
@@ -25,7 +39,12 @@ namespace Scheduler.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(repository.GetBlockLoaded(id));
+<<<<<<< HEAD
+            //return View(bRepository.GetBlockLoaded(id));
+            return View(bRepository.GetBlock(id));
+=======
+            return View(bRepository.GetBlockLoaded(id));
+>>>>>>> origin
         }
 
         //
@@ -88,20 +107,27 @@ namespace Scheduler.Controllers
                     return View(block);
                 }
 
-                var teacher = repository.GetTeacher(teacherId);
-                var grade = repository.GetGradeLevel(gradeId);
+<<<<<<< HEAD
+                //var teacher = repository.GetTeacher(teacherId);
+                //var grade = repository.GetGradeLevel(gradeId);
+=======
+                var teacher = bRepository.GetTeacher(teacherId);
+                var grade = bRepository.GetGradeLevel(gradeId);
+>>>>>>> origin
 
-                if (teacher == null || grade == null)
-                {
-                    ModelState.AddModelError("", "The selected choices for Teacher and/or Grade are not correct.");
-                    FillDropDowns();
-                    return View(block);
-                }
+                //if (teacher == null || grade == null)
+                //{
+                //    ModelState.AddModelError("", "The selected choices for Teacher and/or Grade are not correct.");
+                //    FillDropDowns();
+                //    return View(block);
+                //}
                 
-                block.Teacher = teacher;
-                block.Grade = grade;
+                //block.Teacher = teacher;
+                //block.Grade = grade;
+                block.TeacherId = teacherId;
+                block.GradeLevelId = gradeId;
 
-                repository.SaveBlock(block);
+                bRepository.SaveBlock(block);
 
                 return RedirectToAction("Index");
             }
@@ -117,8 +143,15 @@ namespace Scheduler.Controllers
  
         public ActionResult Edit(int id)
         {
-            var block = repository.GetBlockLoaded(id);
+<<<<<<< HEAD
+            //var block = bRepository.GetBlockLoaded(id);
+            var block = bRepository.GetBlock(id);
+            FillDropDowns(block.TeacherId, block.GradeLevelId);
+
+=======
+            var block = bRepository.GetBlockLoaded(id);
             FillDropDowns(block.Teacher, block.Grade);
+>>>>>>> origin
             return View(block);
         }
 
@@ -130,8 +163,13 @@ namespace Scheduler.Controllers
         {
             try
             {
+<<<<<<< HEAD
+                //var block = bRepository.GetBlockLoaded(id);
+                var block = bRepository.GetBlock(id);
+=======
                 // TODO: Add update logic here
-                var block = repository.GetBlockLoaded(id);
+                var block = bRepository.GetBlockLoaded(id);
+>>>>>>> origin
 
                 block.Name = collection.Get("Name");
                 block.Description = collection.Get("Description");
@@ -142,7 +180,7 @@ namespace Scheduler.Controllers
                 if (!DateTime.TryParse(collection.Get("StartDate"), out start) || !DateTime.TryParse(collection.Get("EndDate"), out end))
                 {
                     ModelState.AddModelError("", "Start date and End date must be dates with the format [dd/mm/yyyy].");
-                    FillDropDowns(block.Teacher, block.Grade);
+                    FillDropDowns(block.TeacherId, block.GradeLevelId);
                     return View(block);
                 }
 
@@ -152,7 +190,7 @@ namespace Scheduler.Controllers
                 if (start > end)
                 {
                     ModelState.AddModelError("", "The end date must be later than the start date.");
-                    FillDropDowns(block.Teacher, block.Grade);
+                    FillDropDowns(block.TeacherId, block.GradeLevelId);
                     return View(block);
                 }
 
@@ -161,36 +199,45 @@ namespace Scheduler.Controllers
                 if (!int.TryParse(collection.Get("teacherId"), out teacherId) || !int.TryParse(collection.Get("gradeId"), out gradeId))
                 {
                     ModelState.AddModelError("", "The selected choices for Teacher and/or Grade are not correct.");
-                    FillDropDowns(block.Teacher, block.Grade);
+                    FillDropDowns(block.TeacherId, block.GradeLevelId);
                     return View(block);
                 }
 
                 if (gradeId == 0 || teacherId == 0)
                 {
                     ModelState.AddModelError("", "The selected choices for Teacher and/or Grade are not correct.");
-                    FillDropDowns(block.Teacher, block.Grade);
+                    FillDropDowns(block.TeacherId, block.GradeLevelId);
                     return View(block);
                 }
 
-                var teacher = repository.GetTeacher(teacherId);
-                var grade = repository.GetGradeLevel(gradeId);
+<<<<<<< HEAD
+                //var teacher = repository.GetTeacher(teacherId);
+                //var grade = repository.GetGradeLevel(gradeId);
+=======
+                var teacher = bRepository.GetTeacher(teacherId);
+                var grade = bRepository.GetGradeLevel(gradeId);
+>>>>>>> origin
 
-                if (teacher == null || grade == null)
-                {
-                    ModelState.AddModelError("", "The selected choices for Teacher and/or Grade are not correct.");
-                    FillDropDowns(block.Teacher, block.Grade);
-                    return View(block);
-                }
+                //if (teacher == null || grade == null)
+                //{
+                //    ModelState.AddModelError("", "The selected choices for Teacher and/or Grade are not correct.");
+                //    FillDropDowns(block.Teacher, block.Grade);
+                //    return View(block);
+                //}
 
-                block.Teacher = teacher;
-                block.Grade = grade;
+                //block.Teacher = teacher;
+                //block.Grade = grade;
+                block.TeacherId = teacherId;
+                block.GradeLevelId = gradeId;
 
-                repository.SaveBlock(block);
+                bRepository.SaveBlock(block);
 
                 return RedirectToAction("Index");
             }
             catch
             {
+                var block = bRepository.GetBlock(id);
+                FillDropDowns(block.TeacherId, block.GradeLevelId);
                 return View();
             }
         }
@@ -200,7 +247,12 @@ namespace Scheduler.Controllers
  
         public ActionResult Delete(int id)
         {
-            return View(repository.GetBlockLoaded(id));
+<<<<<<< HEAD
+            //return View(bRepository.GetBlockLoaded(id));
+            return View(bRepository.GetBlock(id));
+=======
+            return View(bRepository.GetBlockLoaded(id));
+>>>>>>> origin
         }
 
         //
@@ -211,30 +263,45 @@ namespace Scheduler.Controllers
         {
             try
             {
+<<<<<<< HEAD
+=======
                 // TODO: Add delete logic here
-                repository.DeleteBlock(id);
+>>>>>>> origin
+                bRepository.DeleteBlock(id);
  
                 return RedirectToAction("Index");
             }
             catch
             {
+                var block = bRepository.GetBlock(id);
+                FillDropDowns(block.TeacherId, block.GradeLevelId);
                 return View();
             }
         }
 
         private void FillDropDowns()
         {
-            SelectList teacherList = new SelectList(repository.Teachers, "PersonId", "Fullname");
+            SelectList teacherList = new SelectList(tRepository.Teachers, "PersonId", "Fullname");
             ViewData["Teacher_List"] = teacherList;
-            SelectList gradesList = new SelectList(repository.GradeLevels, "GradeLevelId", "Name");
+<<<<<<< HEAD
+            SelectList gradesList = new SelectList(gRepository.GradeLevels, "GradeLevelId", "Name");
+=======
+            SelectList gradesList = new SelectList(bRepository.GradeLevels, "GradeLevelId", "Name");
+>>>>>>> origin
             ViewData["Grade_List"] = gradesList;
         }
 
-        private void FillDropDowns(Teacher teacher, GradeLevel grade)
+        private void FillDropDowns(int? teacherId, int? gradeId)
         {
-            SelectList teacherList = new SelectList(repository.Teachers, "PersonId", "Fullname", teacher.PersonId);
+<<<<<<< HEAD
+            SelectList teacherList = new SelectList(tRepository.Teachers, "PersonId", "Fullname", teacherId);
             ViewData["Teacher_List"] = teacherList;
-            SelectList gradesList = new SelectList(repository.GradeLevels, "GradeLevelId", "Name", grade.GradeLevelId);
+            SelectList gradesList = new SelectList(gRepository.GradeLevels, "GradeLevelId", "Name", gradeId);
+=======
+            SelectList teacherList = new SelectList(tRepository.Teachers, "PersonId", "Fullname", teacher.PersonId);
+            ViewData["Teacher_List"] = teacherList;
+            SelectList gradesList = new SelectList(bRepository.GradeLevels, "GradeLevelId", "Name", grade.GradeLevelId);
+>>>>>>> origin
             ViewData["Grade_List"] = gradesList;
         }
 

@@ -8,15 +8,7 @@ namespace SchedulerDAL.Repositories
 {
     public class BlocksRepository
     {
-        private SchedulerContext context;
-
-        /// <summary>
-        /// A context property to be able to share it with another repository
-        /// </summary>
-        public SchedulerContext Context
-        {
-            get { return context; }
-        }
+        private static SchedulerContext context;
 
         public BlocksRepository()
         {
@@ -26,7 +18,7 @@ namespace SchedulerDAL.Repositories
         /// <summary>
         /// Constructor with a context as a parameter
         /// </summary>
-        /// <param name="_context">Context from another repository to use the same</param>
+        /// <param name="_context">Shared context between repositories</param>
         public BlocksRepository(SchedulerContext _context)
         {
             context = _context;
@@ -55,12 +47,12 @@ namespace SchedulerDAL.Repositories
             return block;
         }
 
-        public Block GetBlockLoaded(int id)
-        {
-            var block = context.Blocks.Include("Teacher").Include("Grade").Where(b => b.BlockId == id).FirstOrDefault();
+        //public Block GetBlockLoaded(int id)
+        //{
+        //    var block = context.Blocks.Include("Teacher").Include("Grade").Where(b => b.BlockId == id).FirstOrDefault();
 
-            return block;
-        }
+        //    return block;
+        //}
 
         public void SaveBlock(Block block)
         {
@@ -81,35 +73,35 @@ namespace SchedulerDAL.Repositories
             context.SaveChanges();
         }
 
-        public IQueryable<Teacher> Teachers
-        {
-            get
-            {
-                return context.Teachers;
-            }
-        }
+        //public IQueryable<Teacher> Teachers
+        //{
+        //    get
+        //    {
+        //        return context.Teachers;
+        //    }
+        //}
 
-        public IQueryable<GradeLevel> GradeLevels
-        {
-            get
-            {
-                return context.GradeLevels;
-            }
-        }
+        //public IQueryable<GradeLevel> GradeLevels
+        //{
+        //    get
+        //    {
+        //        return context.GradeLevels;
+        //    }
+        //}
 
-        public Teacher GetTeacher(int id)
-        {
-            var teacher = context.Teachers.Where(t => t.PersonId == id).FirstOrDefault();
+        //public Teacher GetTeacher(int id)
+        //{
+        //    var teacher = context.Teachers.Where(t => t.PersonId == id).FirstOrDefault();
 
-            return teacher;
-        }
+        //    return teacher;
+        //}
 
-        public GradeLevel GetGradeLevel(int id)
-        {
-            var gradeLevel = context.GradeLevels.Where(gl => gl.GradeLevelId == id).FirstOrDefault();
+        //public GradeLevel GetGradeLevel(int id)
+        //{
+        //    var gradeLevel = context.GradeLevels.Where(gl => gl.GradeLevelId == id).FirstOrDefault();
 
-            return gradeLevel;
-        }
+        //    return gradeLevel;
+        //}
 
     }
 }

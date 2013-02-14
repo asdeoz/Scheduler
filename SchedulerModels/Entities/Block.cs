@@ -24,12 +24,16 @@ namespace SchedulerModels.Entities
         [Display(Name="End date")]
         [DataType(DataType.Date)]
         public DateTime? EndDate { get; set; }
+        public int? GradeLevelId { get; set; }
+        public int? TeacherId { get; set; }
 
-        [Required(ErrorMessage="A block must be in a grade level")]
+        [ForeignKey("GradeLevelId")]
+        //[Required(ErrorMessage="A block must be in a grade level")]
         public virtual GradeLevel Grade { get; set; }
         public virtual List<Student> Students { get; set; }
         public virtual List<DayOfWeek> ScheduledDays { get; set; }
-        [Required(ErrorMessage="A block must have a teacher")]
+        [ForeignKey("TeacherId")]
+        //[Required(ErrorMessage="A block must have a teacher")]
         public virtual Teacher Teacher { get; set; }
     }
 }
