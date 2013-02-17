@@ -48,6 +48,7 @@
     <Compile Include="Entities\Assignment.cs" />
     <Compile Include="Entities\AssignmentGrade.cs" />
     <Compile Include="Entities\Block.cs" />
+    <Compile Include="Entities\BlockDay.cs" />
     <Compile Include="Entities\DayOfWeek.cs" />
     <Compile Include="Entities\GradeLevel.cs" />
     <Compile Include="Entities\Lesson.cs" />
