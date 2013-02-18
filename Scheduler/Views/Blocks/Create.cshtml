@@ -11,7 +11,21 @@
 
 <script type="text/javascript">
     jQuery(function ($) {
+        $("#startSunday").width(50);
         $("#startSunday").mask("99:99");
+        $("#endSunday").mask("99:99");
+        $("#startMonday").mask("99:99");
+        $("#endMonday").mask("99:99");
+        $("#startTuesday").mask("99:99");
+        $("#endTuesday").mask("99:99");
+        $("#startWednesday").mask("99:99");
+        $("#endWednesday").mask("99:99");
+        $("#startThursday").mask("99:99");
+        $("#endThursday").mask("99:99");
+        $("#startFriday").mask("99:99");
+        $("#endFriday").mask("99:99");
+        $("#startSaturday").mask("99:99");
+        $("#endSaturday").mask("99:99");
     });
 </script>
 
@@ -76,7 +90,10 @@
             @Html.ValidationMessageFor(model => model.Grade)
         </div>
 
-        <div>
+        <div class="editor-label">
+            @Html.Label("Schedule")
+        </div>
+        <div class="editor-field">
             <table>
                 <tr>
                     <th></th>
@@ -122,7 +139,7 @@
                 </tr>
                 <tr>
                     <td>@Html.CheckBox("chkSaturday")</td>
-                    <td>@Html.Label("saturday")</td>
+                    <td>@Html.Label("Saturday")</td>
                     <td>@Html.TextBox("startsaturday")</td>
                     <td>@Html.TextBox("endsaturday")</td>
                 </tr>

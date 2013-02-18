@@ -8,6 +8,7 @@ using SchedulerModels.Entities;
 namespace SchedulerDAL
 {
     public class SchedulerDbInitializer : DropCreateDatabaseIfModelChanges<SchedulerContext>
+    //public class SchedulerDbInitializer : DropCreateDatabaseAlways<SchedulerContext>
     {
         protected override void Seed(SchedulerContext context)
         {
@@ -25,10 +26,13 @@ namespace SchedulerDAL
             //Students//////////////////////////////////////////////////////////////////////////////////////////////////////
             var students = new List<Student>
             {
-                new Student{Name="John", Surname1="", Surname2="", MotherName="", FatherName="", IdNumber="", Email="", Phone=""},
-                new Student{Name="Julia", Surname1="", Surname2="", MotherName="", FatherName="", IdNumber="", Email="", Phone=""},
-                new Student{Name="Seth", Surname1="", Surname2="", MotherName="", FatherName="", IdNumber="", Email="", Phone=""},
+                new Student{Name="John", Surname1="Fringe", Surname2="", MotherName="Paola", FatherName="John", IdNumber="74529758G", Email="John00@mail.com", Phone="937461262"},
+                new Student{Name="Julia", Surname1="Lawn", Surname2="Rogers", MotherName="Geraldine", FatherName="Joel", IdNumber="73985638F", Email="Julia99@mail.com", Phone="638274590"},
+                new Student{Name="Seth", Surname1="Garcia", Surname2="Kaett", MotherName="Martha", FatherName="Mike", IdNumber="86531543T", Email="Seth05@mail.com", Phone="934576975"},
             };
+
+            students.ForEach(s => context.Students.Add(s));
+            context.SaveChanges();
 
             //GradeLevels///////////////////////////////////////////////////////////////////////////////////////////////////
             var gradeLevels = new List<GradeLevel>

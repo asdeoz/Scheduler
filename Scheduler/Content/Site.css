@@ -203,6 +203,11 @@ input[type="password"] {
     width: 200px;
 }
 
+.time-box
+{
+    width: 75px;
+}
+
 select {
     border: 1px solid #ccc;
     padding: 2px;
@@ -327,3 +332,5 @@ div#title {
 .tri-state {
     width: 6em;
 }
+
+/* Custom CSS */
