@@ -259,6 +259,10 @@
       <Project>{49d638ac-4203-49c0-b647-a8e6eeddf1b5}</Project>
       <Name>SchedulerModels</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SchedulerUtils\SchedulerUtils.csproj">
+      <Project>{1236b409-6f6f-4e1b-94e1-484a848efe17}</Project>
+      <Name>SchedulerUtils</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

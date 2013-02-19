@@ -24,13 +24,13 @@ namespace SchedulerDAL.Repositories
         //    context = _context;
         //}
 
-        //public IQueryable<Block> Blocks
-        //{
-        //    get
-        //    {
-        //        return context.Blocks;
-        //    }
-        //}
+        public IQueryable<Block> Blocks
+        {
+            get
+            {
+                return context.Blocks;
+            }
+        }
 
         //public IQueryable<Block> BlocksLoaded
         //{

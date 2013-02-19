@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using SchedulerDAL.Repositories;
 using SchedulerModels.Entities;
+using SchedulerUtils;
 
 namespace Scheduler.Controllers
 {
@@ -89,6 +90,17 @@ namespace Scheduler.Controllers
                     ModelState.AddModelError("", "The selected choices for Teacher and/or Grade are not correct.");
                     FillDropDowns();
                     return View(block);
+                }
+
+                if (Conversor.ConvertToBool(collection.Get("chkSunday")))
+                {
+                    var day = new BlockDay();
+                    if (!Conversor.ConvertToDateTime(collection.Get("startSunday"), day.StartTime) || !Conversor.ConvertToDateTime(collection.Get("startSunday"), day.EndTime))
+                    {
+                        ModelState.AddModelError("", "The times for Sunday are incorrect.");
+                        FillDropDowns();
+                        return View(block);
+                    }
                 }
 
                 //var teacher = repository.GetTeacher(teacherId);

@@ -179,5 +179,16 @@ namespace SchedulerUtils
                 return parametro.Value.ToString().Replace('.', ',');
             }
         }
+
+        /// <summary>
+        /// Pasándole un string intenta hacer un parse poniendo el resultado dentro del datetime pasado
+        /// </summary>
+        /// <param name="parametro">String a intentar convertir en DateTime</param>
+        /// <param name="resultado">DateTime de destino para la conversión del string</param>
+        /// <returns>True si puede convertir el string, False si no lo logra</returns>
+        public static bool ConvertToDateTime(string parametro, DateTime resultado)
+        {
+            return DateTime.TryParse(parametro, out resultado);
+        }
     }
 }
