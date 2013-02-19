@@ -19,7 +19,7 @@ namespace Scheduler.Controllers
 
         public ActionResult Index()
         {
-            return View(bRepository.BlocksLoaded);
+            return View(bRepository.Blocks);
         }
 
         //

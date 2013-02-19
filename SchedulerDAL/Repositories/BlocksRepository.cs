@@ -15,30 +15,30 @@ namespace SchedulerDAL.Repositories
             context = new SchedulerContext();
         }
 
-        /// <summary>
-        /// Constructor with a context as a parameter
-        /// </summary>
-        /// <param name="_context">Shared context between repositories</param>
-        public BlocksRepository(SchedulerContext _context)
-        {
-            context = _context;
-        }
+        ///// <summary>
+        ///// Constructor with a context as a parameter
+        ///// </summary>
+        ///// <param name="_context">Shared context between repositories</param>
+        //public BlocksRepository(SchedulerContext _context)
+        //{
+        //    context = _context;
+        //}
 
-        public IQueryable<Block> Blocks
-        {
-            get
-            {
-                return context.Blocks;
-            }
-        }
+        //public IQueryable<Block> Blocks
+        //{
+        //    get
+        //    {
+        //        return context.Blocks;
+        //    }
+        //}
 
-        public IQueryable<Block> BlocksLoaded
-        {
-            get
-            {
-                return context.Blocks.Include("Teacher").Include("Grade");
-            }
-        }
+        //public IQueryable<Block> BlocksLoaded
+        //{
+        //    get
+        //    {
+        //        return context.Blocks.Include("Teacher").Include("Grade");
+        //    }
+        //}
 
         public Block GetBlock(int id)
         {
@@ -59,6 +59,14 @@ namespace SchedulerDAL.Repositories
             if (block.BlockId == 0)
             {
                 context.Blocks.Add(block);
+            }
+
+            foreach (BlockDay day in block.ScheduledDays)
+            {
+                if (day.BlockDayId==0)
+                {
+                    context.BlockDays.Add(day);
+                }
             }
 
             context.SaveChanges();

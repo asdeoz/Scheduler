@@ -7,8 +7,8 @@ using SchedulerModels.Entities;
 
 namespace SchedulerDAL
 {
-    public class SchedulerDbInitializer : DropCreateDatabaseIfModelChanges<SchedulerContext>
-    //public class SchedulerDbInitializer : DropCreateDatabaseAlways<SchedulerContext>
+    //public class SchedulerDbInitializer : DropCreateDatabaseIfModelChanges<SchedulerContext>
+    public class SchedulerDbInitializer : DropCreateDatabaseAlways<SchedulerContext>
     {
         protected override void Seed(SchedulerContext context)
         {

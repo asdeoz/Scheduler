@@ -4,14 +4,13 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D9A9C0CD-59F6-45D4-B538-27A377A650C1}</ProjectGuid>
+    <ProjectGuid>{1236B409-6F6F-4E1B-94E1-484A848EFE17}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SchedulerDAL</RootNamespace>
-    <AssemblyName>SchedulerDAL</AssemblyName>
+    <RootNamespace>SchedulerUtils</RootNamespace>
+    <AssemblyName>SchedulerUtils</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,9 +30,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,27 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conversor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\BlocksRepository.cs" />
-    <Compile Include="Repositories\GradeLevelsRepository.cs" />
-    <Compile Include="Repositories\StudentsRepositories.cs" />
-    <Compile Include="Repositories\TeachersRepositories.cs" />
-    <Compile Include="SchedulerContext.cs" />
-    <Compile Include="SchedulerDbInitializer.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SchedulerModels\SchedulerModels.csproj">
-      <Project>{49d638ac-4203-49c0-b647-a8e6eeddf1b5}</Project>
-      <Name>SchedulerModels</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SchedulerUtils\SchedulerUtils.csproj">
-      <Project>{1236b409-6f6f-4e1b-94e1-484a848efe17}</Project>
-      <Name>SchedulerUtils</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

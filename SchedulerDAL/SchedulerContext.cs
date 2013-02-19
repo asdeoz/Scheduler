@@ -13,6 +13,7 @@ namespace SchedulerDAL
         public DbSet<Student> Students { get; set; }
         public DbSet<GradeLevel> GradeLevels { get; set; }
         public DbSet<Block> Blocks { get; set; }
+        public DbSet<BlockDay> BlockDays { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

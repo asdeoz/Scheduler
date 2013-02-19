@@ -35,5 +35,20 @@ namespace SchedulerModels.Entities
         public virtual Teacher Teacher { get; set; }
 
         //public virtual List<DayOfWeek> ScheduledDays { get; set; }
+
+        public void AddBlockDay(BlockDay day)
+        {
+            var existDay = ScheduledDays.Where(d => d.Day == day.Day).FirstOrDefault();
+
+            if (existDay != null)
+            {
+                existDay.StartTime = day.StartTime;
+                existDay.EndTime = day.EndTime;
+            }
+            else
+            {
+                ScheduledDays.Add(day);
+            }
+        }
     }
 }
